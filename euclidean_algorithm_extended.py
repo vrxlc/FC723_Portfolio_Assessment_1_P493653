@@ -1,6 +1,5 @@
 class ExtendedEuclideanAlgorithm:
     def extended_gcd(self, a, b):
-        # If b is zero, return gcd and coefficients
         if b == 0:
             return (a, 1, 0)
 
@@ -8,7 +7,6 @@ class ExtendedEuclideanAlgorithm:
         old_s, s = 1, 0
         old_t, t = 0, 1
 
-        # Algorithm loop
         while r != 0:
             quotient = old_r // r
 
@@ -19,11 +17,29 @@ class ExtendedEuclideanAlgorithm:
         return (old_r, old_s, old_t)
 
 
-# Minimal driver to test functionality (not yet validated)
+# Adds user input & validation
 def main():
-    calculator = ExtendedEuclideanAlgorithm()
-    gcd, x, y = calculator.extended_gcd(30, 12)
-    print(gcd, x, y)
+    print("Extended Euclidean Algorithm")
+    print("-" * 40)
+
+    try:
+        num1 = int(input("Enter first positive integer: "))
+        num2 = int(input("Enter second positive integer: "))
+
+        if num1 <= 0 or num2 <= 0:
+            print("Error: Numbers must be positive")
+            return
+
+        calculator = ExtendedEuclideanAlgorithm()
+        gcd, x, y = calculator.extended_gcd(num1, num2)
+
+        print(f"\nGCD of {num1} and {num2} = {gcd}")
+        print(f"Bézout coefficients: x = {x}, y = {y}")
+        print(f"Verification: {num1}*({x}) + {num2}*({y}) = {gcd}")
+
+    except ValueError:
+        print("Error: Please enter valid integers")
+
 
 if __name__ == "__main__":
     main()
