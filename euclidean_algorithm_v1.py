@@ -62,6 +62,18 @@ def main():
     print("Euclidean Algorithm - GCD Calculator")
     print("-" * 40)
     
+    # Test case 1: numbers with a common factor
+    num1 = 48
+    num2 = 18
+    result = gcd_calculator.calculate_gcd(num1, num2)
+    print(f"GCD of {num1} and {num2} = {result}")
+    
+    # Test case 2: one number divides the other
+    num1 = 100
+    num2 = 25
+    result = gcd_calculator.calculate_gcd(num1, num2)
+    print(f"GCD of {num1} and {num2} = {result}")
+    
     
 # This line makes sure the code only runs when this file is executed directly
 if __name__ == "__main__":
