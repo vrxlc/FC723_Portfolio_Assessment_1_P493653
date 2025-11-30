@@ -13,6 +13,21 @@ a few sample numbers.
 
 """
 
+# PSEUDOCODE:
+# ALGORITHM Euclidean GCD
+# INPUT: Two positive integers a, b
+# OUTPUT: Greatest Common Divisor (GCD) of a and b
+#
+# BEGIN
+#     WHILE b ≠ 0 DO
+#         temp ← b
+#         b ← a MOD b
+#         a ← temp
+#     END WHILE
+#     
+#     RETURN a
+# END
+
 class EuclideanAlgorithm:
     """
     A class to calculate the GCD using the Euclidean Algorithm.
@@ -73,8 +88,8 @@ def main():
     num2 = 25
     result = gcd_calculator.calculate_gcd(num1, num2)
     print(f"GCD of {num1} and {num2} = {result}")
-    
-    
+
+
 # This line makes sure the code only runs when this file is executed directly
 if __name__ == "__main__":
     main()
