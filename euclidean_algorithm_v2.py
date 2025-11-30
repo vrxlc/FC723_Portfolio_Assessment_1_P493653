@@ -10,19 +10,22 @@ class EuclideanAlgorithm:
 def get_valid_input(prompt):
     while True:
         try:
-            value = int(input(prompt))
-            if value > 0:
+            value = int(input(prompt))  # convert input to integer
+
+            if value > 0:  # validate input
                 return value
+            else:
+                print("Error: Please enter a positive number (greater than 0).")
+
         except ValueError:
-            pass
+            print("Error: Please enter a valid integer.")
 
 
-# Requirement 2: Refactoring the code to use user input for GCD calculation
+# Requirement 3: validation messages added
 def main():
     print("Euclidean Algorithm - GCD Calculator")
     print("-" * 40)
 
-    # Now fully relies on user input
     num1 = get_valid_input("Enter first positive integer: ")
     num2 = get_valid_input("Enter second positive integer: ")
 
