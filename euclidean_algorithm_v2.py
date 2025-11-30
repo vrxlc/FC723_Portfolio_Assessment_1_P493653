@@ -1,37 +1,36 @@
-"""
-FC723 Portfolio Assessment 1  - Euclidean Algorithm Implementation
-Version 2: Interactive version with user input and validation
-Student ID: P493653
-Tutor: Sophie Norman
-
-Description: 
-This program calculates the Greatest Common Divisor (GCD) of two positive integers
-using the Euclidean Algorithm. The program now accepts user input and validates 
-it to ensure the numbers are positive integers. Encapsulation is demonstrated 
-by using a class for the GCD calculation.
-
-"""
-
 class EuclideanAlgorithm:
-    """
-    A class to calculate the GCD using the Euclidean Algorithm.
-    """
-    
     def calculate_gcd(self, a, b):
-        """
-        Calculate the GCD of two positive integers.
-        
-        Parameters:
-            a (int): First positive integer
-            b (int): Second positive integer
-        
-        Returns:
-            int: The GCD of a and b
-        """
-        # Keeps looping until b becomes 0
         while b != 0:
-            temp = b        # Store current b
-            b = a % b       # Update b to remainder
-            a = temp        # Update a to previous b
-        
+            temp = b
+            b = a % b
+            a = temp
         return a
+
+
+def get_valid_input(prompt):
+    while True:
+        try:
+            value = int(input(prompt))
+            if value > 0:
+                return value
+        except ValueError:
+            pass
+
+
+# Requirement 2: Refactoring the code to use user input for GCD calculation
+def main():
+    print("Euclidean Algorithm - GCD Calculator")
+    print("-" * 40)
+
+    # Now fully relies on user input
+    num1 = get_valid_input("Enter first positive integer: ")
+    num2 = get_valid_input("Enter second positive integer: ")
+
+    gcd_calculator = EuclideanAlgorithm()
+    result = gcd_calculator.calculate_gcd(num1, num2)
+
+    print(f"\nGCD of {num1} and {num2} = {result}")
+
+
+if __name__ == "__main__":
+    main()
